@@ -1,0 +1,60 @@
+<body>
+
+</body>
+<script>
+    let szam = 5
+    let coordinate = 0
+    let coordinates = []
+    let i = 0
+
+    function f(e){
+        a = e.target.style
+        a.backgroundColor=a.backgroundColor=="red"?"rgb(188, 255, 161)":"red"
+    }
+    document.write(`
+        <table><td class="cont">
+        <table id = "tabla1">
+            ${Array(8)
+                .fill(`<tr>
+                    ${Array(8)
+                        .fill("<td onclick='f(event)'></td>").join('')
+                }</tr>`
+            ).join('')}
+        </table>
+        </td><td class="cont">
+        <table id = "tabla2">
+            ${Array(8)
+                .fill(`<tr>
+                    ${Array(8)
+                        .fill("<td onclick='f(event)'></td>").join('')
+                }</tr>`
+            ).join('')}
+        </table>
+        </td></table>
+    `)
+    function random(){
+        while(i<szam){
+            let x = Math.floor(Math.random() * 8)+1
+            let y = Math.floor(Math.random() * 8)+1
+            coordinates.push(coordinate = 10*x+y)
+            i++
+        }
+    }
+    random()
+    console.log(coordinates)
+    
+</script>
+<style>
+    td.cont {
+        width: 50%;
+        background-color: rgb(174, 255, 255);
+    }
+    td {
+        width: 30px;
+        height: 30px;
+        box-shadow: 1px 1px 3px black;
+        border-radius: 7px;
+        background-color: rgb(188, 255, 161);
+        cursor: pointer;
+    }
+</style>
